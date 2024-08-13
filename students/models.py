@@ -1,9 +1,11 @@
 from django.db import models
+from courses.models import Courses
 
 # Create your models here.
 class Students(models.Model):
     students_id = models.AutoField(primary_key=True)
     first_name=models.CharField(max_length=20)
+    courses = models.ManyToManyField(Courses)
     last_name=models.CharField(max_length=20)
     email=models.EmailField()
     code=models.PositiveSmallIntegerField()
